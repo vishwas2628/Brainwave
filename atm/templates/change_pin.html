@@ -1,0 +1,14 @@
+{% extends "layout.html"%}
+
+{% block body %}
+<h1>Change pin</h1>
+<form action="{% url 'change_pin' %}" method="post">{%csrf_token%}
+    <input type="text" name="new_pin" placeholder="New pin" required>
+    <input type="text" name="new_pin" placeholder="Retype New pin" required>
+    <button class="btn btn-secondary" type="submit">Update</button>
+    {%if success %}
+     <p>{{success}}</p>
+    {% endif %}
+</form>
+<a class="text-decoration-none" href="/atm/menu/">Menu</a>
+{% endblock %}

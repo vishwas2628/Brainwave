@@ -1,0 +1,15 @@
+{% extends "layout.html"%}
+
+{% block body %}
+<h1>Withdraw Money</h1>
+<form action="{% url 'withdraw_money' %}" method="post">{%csrf_token%}
+    <input type="text" name="amount" placeholder="Enter Withdraw amount">
+    <button class="btn btn-secondary" type="submit">Withdraw</button>
+    {% if success %}
+     <p>{{success}}</p>
+    {% elif error %}
+      <p>{{error}}</p>
+    {% endif %}
+</form>
+<a class="text-decoration-none" href="/atm/menu/">Menu</a>
+{% endblock %}
